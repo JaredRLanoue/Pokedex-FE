@@ -1,0 +1,249 @@
+.details-page {
+  overflow: auto;
+  height: 100%;
+  background-color: #bea294;
+}
+
+.details-card {
+  box-sizing: border-box;
+  padding: 24px;
+  gap: 16px;
+  border-radius: 16px;
+  background-color: white;
+  width: 800px;
+  height: 820px;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 64px;
+}
+
+.details-back-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 50%;
+  background: url("../assets/back.svg") left no-repeat;
+}
+
+h3 {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 40px;
+  color: #574F62;
+}
+
+.details-header {
+  display: flex;
+  align-items: center;
+  padding-left: 72px;
+  padding-right: 115px;
+  height: 96px;
+}
+
+.card-top {
+  width: 752px;
+  gap: 16px;
+  height: 68px;
+  display: flex;
+  background-color: transparent;
+  align-items: center;
+  flex-direction: row;
+}
+
+.card-title {
+  width: max-content;
+  height: 36px;
+  margin-left: 16px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 36px;
+  color: #181222;
+}
+
+.border {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  width: 752px;
+  height: 0px;
+  opacity: 0.2;
+  border: 1px solid #181222;
+  background: #181222;
+}
+
+.card-number {
+  width: 65px;
+  margin-right: auto;
+  height: 36px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 36px;
+  color: #181222;
+  opacity: 0.32;
+}
+
+.card-middle {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 24px;
+  width: 752px;
+  height: 264px;
+  flex: none;
+  order: 2;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.card-image {
+  height: 264px;
+  width: 264px;
+  left: 0px;
+  top: 0px;
+  border-radius: 0px;
+}
+
+.card-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 24px;
+  width: 364px;
+  height: 264px;
+  flex: none;
+  order: 1;
+  flex-grow: 1;
+}
+
+.card-bottom-top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: 752px;
+  height: max-content;
+}
+
+.card-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 24px;
+  width: 752px;
+  height: 378px;
+}
+
+.genus {
+  padding: 0px 16px;
+  width: 720px;
+  height: 24px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  color: #181222;
+}
+
+.description {
+  padding: 0px 16px;
+  width: 720px;
+  height: max-content;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #181222;
+  flex: none;
+  align-self: stretch;
+  margin-bottom: 24px;
+}
+
+.profile-title {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
+  padding-right: 10px;
+  width: 752px;
+  box-sizing: border-box;
+  height: max-content;
+  background: #574F62;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  align-items: center;
+  text-align: left;
+  padding: 8px 16px;
+  color: #ffffff;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 1px;
+  width: 752px;
+  height: 170px;
+  flex: none;
+  order: 2;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 16px;
+  width: 375px;
+  height: 168px;
+  flex: none;
+  order: 0;
+  flex-grow: 1;
+}
+
+.profile-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 16px;
+  gap: 16px;
+  width: 375px;
+  height: 24px;
+}
+
+.profile-name {
+  width: 96px;
+  height: 20px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  color: #181222;
+}
+
+.profile-value {
+  width: 231px;
+  height: 24px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #181222;
+}

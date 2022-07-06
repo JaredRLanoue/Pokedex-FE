@@ -1,0 +1,55 @@
+a:link {
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.page-container {
+  position: relative;
+  overflow: auto;
+  
+}
+
+.bottom-container {
+  clear: both;
+  margin-top: 40px;
+  margin-bottom: 148px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 312px);
+  grid-template-rows: auto auto auto;
+  grid-gap: 16px;
+  justify-content: center;
+}
+
+@media (max-width: 720px) {
+  .bottom-container{
+      grid-template-columns: repeat(auto-fill, 312px);
+  }
+}
+
+h2 {
+  left: 16px;
+  color: #181222;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0em;
+  text-align: left;
+  position: absolute;
+  top: 0px;
+}
+
+button:hover {
+  transform: scale(1.03);
+}
+
+body {
+  background-color: #fdf4ff;
+  font-family: "Roboto", sans-serif;
+}
+
+::selection {
+  background: #D8CFE5;
+}

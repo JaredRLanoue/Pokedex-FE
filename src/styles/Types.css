@@ -1,0 +1,120 @@
+.type-box {
+  height: max-content;
+  padding: 0px 4px 0px 4px;
+  width: max-content;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.normal {
+  background: rgba(168, 168, 120, 0.25);
+  border: 1px solid #a8a878;
+  color: #a8a878;
+}
+
+.fire {
+  background: rgba(240, 128, 48, 0.25);
+  border: 1px solid #f08030;
+  color: #f08030;
+}
+
+.water {
+  background: rgba(104, 144, 240, 0.25);
+  border: 1px solid #6890f0;
+  color: #6890f0
+}
+
+.grass {
+  background: rgba(120, 200, 80, 0.25);
+  border: 1px solid #78c850;
+  color: #78c850;
+}
+
+.electric {
+  background: rgba(248, 208, 48, 0.25);
+  border: 1px solid #f8d030;
+  color: #f8d030;
+}
+
+.ice {
+  background: rgba(152, 216, 216, 0.25);
+  border: 1px solid #98d8d8;
+  color: #98d8d8;
+}
+
+.fighting {
+  background: rgba(192, 48, 40, 0.25);
+  border: 1px solid #c03028;
+  color: #c03028;
+}
+
+.poison {
+  background: rgba(160, 64, 170, 0.25);
+  border: 1px solid #a040aa;
+  color: #a040aa;
+}
+
+.ground {
+  background: rgba(224, 192, 104, 0.25);
+  border: 1px solid #e0c068;
+  color: #e0c068;
+}
+
+.flying {
+  background: rgba(168, 144, 240, 0.25);
+  border: 1px solid #a890f0;
+  color: #a890f0;
+}
+
+.psychic {
+  background: rgba(248, 88, 136, 0.25);
+  border: 1px solid #f85888;
+  color: #f85888;
+}
+
+.bug {
+  background: rgba(168, 184, 32, 0.25);
+  border: 1px solid #a8b820;
+  color: #a8b820;
+}
+
+.rock {
+  background: rgba(184, 160, 56, 0.25);
+  border: 1px solid #b8a038;
+  color: #b8a038;
+}
+
+.ghost {
+  background: rgba(112, 88, 152, 0.25);
+  border: 1px solid #705898;
+  color: #705898;
+}
+
+.dark {
+  background: rgba(112, 88, 72, 0.25);
+  border: 1px solid #705848;
+  color: #705848;
+}
+
+.dragon {
+  background: rgba(112, 56, 248, 0.25);
+  border: 1px solid #7038f8;
+  color: #7038f8;
+}
+
+.steel {
+  background: rgba(184, 184, 208, 0.25);
+  border: 1px solid #b8b8d0;
+  color: #b8b8d0;
+}
+
+.fairy {
+  background: rgba(238, 153, 172, 0.25);
+  border: 1px solid #ee99ac;
+  color: #ee99ac;
+}
