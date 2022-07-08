@@ -21,7 +21,22 @@ export default function StatsRow({ name, value }) {
     }
   }, []);
 
+  //  I think you could refactor away this useEffect. You could define an object w
+  //  with a shape like this:
+  //
+  //  const statValues = {
+  //   hp: {
+  //     name: 'HP',
+  //     value: 255
+  //   }
+  //   ...
+  //  }
+  // 
+  //  Then below in your code you could do statValues[slug].name and statValues[slug].value
+  //  to get the values you need inline. Eliminating the need to keep these state variables
+
   if (statsData !== undefined) {
+    //  You could just check if (statsData) { ... }
     return (
       <div className="stats-row">
         <div className="stats-name">{statsData.name}</div>

@@ -16,6 +16,14 @@ export default function ProfileRow({ name, value }) {
         );
       });
       return setProfileValue(arrayOfValues.join(", "));
+
+      // This can be cleaned up into essentially a single line. Array map actually
+      // is used to make a new array, in this code you are treating it as a [].forEach
+      // Something like this should work, using functional programming and a single line
+      // of code
+      //
+      // const values = value.map(val => 
+      //     val.charAt(0).toUpperCase() + val.substring(1)).join(", ");
     }
   }, []);
 
