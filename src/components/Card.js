@@ -2,36 +2,30 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Types from "./Types";
 
-export default function Card({ pokemon, page }) {
+export default function Card({pokemon: {id, name, types}, page}) {
   const navigate = useNavigate();
-  const image = getPokemonImage(pokemon.id);
+  const pokemonImage = getPokemonImage(id);
   
   function getPokemonImage(id) {
     let url = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/`;
-    let newId = "";
-    if (id < 10) {
-      newId = "00" + id;
-    } else if (10 <= id && id < 100) {
-      newId = "0" + id;
-    } else {
-      newId = id;
-    }
-    return url + newId + ".png";
-  }
+    if (id < 10) return url + "00" + id + ".png";
+    else if (10 <= id && id < 100) return url + "0" + id + ".png";
+    else return url + id + ".png";
+  };
 
   const navigateToPokemon = () => {
-    navigate(`/pokedex/${pokemon.id}`, {
-      state: { id: pokemon.id, page: page, image: image},
+    navigate(`/pokedex/${id}`, {
+      state: { pokemonId: id, page: page},
     });
   };
 
   return (
-    <a href={`/pokedex/${pokemon.id}`}>
+    <a href={`/pokedex/${id}`}>
     <button className="cards" onClick={navigateToPokemon}>
-        <div className="cards-title">{pokemon.name}</div>
-      <img className="cards-image" src={image} alt={pokemon.name}/>
+        <div className="cards-title">{name}</div>
+      <img className="cards-image" src={pokemonImage} alt={name}/>
       <div className="cards-type">
-      {pokemon.types.map((type, index) => (
+      {types.map((type, index) => (
         <Types key={index} type={type} />
       ))}
       </div>

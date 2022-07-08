@@ -4,29 +4,33 @@ import "./MainPage";
 import searchIcon from "../assets/search.svg";
 import debounce from "lodash.debounce";
 
-const Search = ({ setPageData, setPage, page, meta }) => {
+const Search = ({
+  setPageData,
+  setSearchParams,
+  meta,
+  page
+}) => {
+
   const handleSearch = (searchInput) => {
     fetch(
       `https://intern-pokedex.myriadapps.com/api/v1/pokemon?name=${searchInput.target.value}`
     )
       .then((resp) => resp.json())
-      .then(({ data, meta }) => {
+      .then(({ data }) => {
         setPageData(data);
+        if (searchInput.target.value === "") setSearchParams({ page: page });
+        else setSearchParams({ page: page, name: searchInput.target.value });
       });
   };
 
   const navigateNextPage = () => {
     if (page >= meta.last_page) return null;
-    else {
-      setPage(page + 1);
-    }
+    else setSearchParams({ page: page + 1 });
   };
 
   const navigatePreviousPage = () => {
     if (page <= 1) return null;
-    else {
-      setPage(page - 1);
-    }
+    else setSearchParams({ page: page - 1 });
   };
 
   return (
@@ -38,7 +42,7 @@ const Search = ({ setPageData, setPage, page, meta }) => {
         <input
           type="text"
           placeholder="Search"
-          onChange={useCallback(debounce(handleSearch, 300), [])}
+          onChange={useCallback(debounce(handleSearch, 300))}
         />
       </div>
       <button className="nav-next" onClick={navigateNextPage} />

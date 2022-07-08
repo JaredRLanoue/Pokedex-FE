@@ -6,17 +6,16 @@ export default function ProfileRow({ name, value }) {
 
   useEffect(() => {
     if (name === "Height:") {
-      setProfileValue(value + " m");
+      return setProfileValue(value + " m");
     } else if (name === "Weight:") {
-      setProfileValue(value + " kg");
+      return setProfileValue(value + " kg");
     } else {
       let arrayOfValues = [];
       (value || []).map((element) => {
-        arrayOfValues.push(
-          element.charAt(0).toUpperCase() + element.substring(1).toLowerCase()
+        return arrayOfValues.push(element.charAt(0).toUpperCase() + element.substring(1).toLowerCase()
         );
       });
-      setProfileValue(arrayOfValues.join(", "))
+      return setProfileValue(arrayOfValues.join(", "));
     }
   }, []);
 

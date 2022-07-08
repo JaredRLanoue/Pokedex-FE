@@ -1,7 +1,7 @@
 .details-page {
   overflow: auto;
-  height: 100%;
-  background-color: #bea294;
+  height: 100vh;
+  width: 100%;
 }
 
 .details-card {
@@ -11,22 +11,10 @@
   border-radius: 16px;
   background-color: white;
   width: 800px;
-  height: 820px;
+  height: 740px;
   justify-content: center;
   margin: auto;
   margin-bottom: 64px;
-}
-
-.details-back-button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  height: 40px;
-  width: 40px;
-  min-width: 40px;
-  min-height: 40px;
-  border-radius: 50%;
-  background: url("../assets/back.svg") left no-repeat;
 }
 
 h3 {
@@ -34,13 +22,12 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  flex: 1;
   align-items: center;
   justify-content: center;
   font-weight: 400;
   font-size: 32px;
   line-height: 40px;
-  color: #574F62;
+  color: #574f62;
 }
 
 .details-header {
@@ -119,7 +106,7 @@ h3 {
 .card-stats {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   padding: 0px;
   gap: 24px;
   width: 364px;
@@ -145,7 +132,7 @@ h3 {
   padding: 0px;
   gap: 24px;
   width: 752px;
-  height: 378px;
+  height: max-content;
 }
 
 .genus {
@@ -174,15 +161,13 @@ h3 {
 }
 
 .profile-title {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
   gap: 10px;
   padding-right: 10px;
   width: 752px;
   box-sizing: border-box;
+  border: none;
   height: max-content;
-  background: #574F62;
+  background: #928a9f;
   font-size: 16px;
   font-weight: 600;
   line-height: 24px;
@@ -198,7 +183,7 @@ h3 {
   align-items: flex-start;
   padding: 1px;
   width: 752px;
-  height: 170px;
+  height: max-content;
   flex: none;
   order: 2;
   align-self: stretch;
@@ -212,7 +197,7 @@ h3 {
   padding: 0px;
   gap: 16px;
   width: 375px;
-  height: 168px;
+  height: max-content;
   flex: none;
   order: 0;
   flex-grow: 1;
@@ -246,4 +231,45 @@ h3 {
   line-height: 24px;
   letter-spacing: 0.5px;
   color: #181222;
+}
+
+.stats-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 24px;
+  width: 364px;
+  height: 24px;
+}
+
+.stats-name {
+  width: 64px;
+  height: 20px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: #181222;
+}
+
+.stats-value-background {
+  height: 24px;
+  width: 276px;
+  left: 0px;
+  top: 0px;
+  border-radius: 0px;
+  background-color: rgb(146, 138, 159, 0.24);
+}
+
+.stats-value {
+  outline: black;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: left;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 2px 2px 2px 4px;
+  color: #ffffff;
+  background-color: rgb(146, 138, 159);
 }
