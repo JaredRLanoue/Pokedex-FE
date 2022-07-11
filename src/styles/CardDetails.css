@@ -197,6 +197,7 @@ h3 {
   padding: 0px;
   gap: 16px;
   width: 375px;
+  {/* There are a lot of absolute widths in here */}
   height: max-content;
   flex: none;
   order: 0;

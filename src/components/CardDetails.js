@@ -9,6 +9,9 @@ import StatsRow from "./StatsRow";
 import Helmet from "react-helmet";
 
 const Details = () => {
+  // I think that the name of the file and the component could be improved here
+  // The name of the file implies that it is a card, but it is actual a page.
+  // PokemonDetails I think would be the more concise name here
   const [pokemonImage, setPokemonImage] = useState();
   const {state} = useLocation();
   const [pokemon, setPokemon] = useState([]);
@@ -28,6 +31,13 @@ const Details = () => {
         setIsLoading(false);
       });
   }, [pokemon]);
+  // I don't think this is the right parameter to pass through to the useEffect dependancy
+  // array. As it is set from within the useEffect with setPokemon. I woiuld have expected
+  // this to cause an infinite loop
+  // 
+  // I think that the variable you actually want to watch for changes is pokemonId
+  // which should only be set from a single source, rather than conditionally from either
+  // way like its doing on line 24 above.
 
   const getPokemonImage = (id) => {
     let url = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/`;
@@ -35,10 +45,19 @@ const Details = () => {
     else if (10 <= id && id < 100) return url + "0" + id + ".png";
     else return url + id + ".png";
   };
+  //I mentioned this in one of the previous reviews, but in javascript there is a function
+  //called padStart that does exactly what you are looking for here and should clean things
+  //up dramatically
 
   if (isLoading) return <Loading />;
   else return (
     <div className={"details-page"}>
+      {/*
+        This className can be used without the brackets and just "details-page"
+        Speaking of, "Details Page" could also be a good name for this component. 
+        When there is a parent level wrapper class like this, it is a good idea to keep 
+        it as the same name as the name of the parent component
+      */}
       <Helmet>
         <body className={`${types[1] || types[0]}`} />
       </Helmet>
@@ -49,6 +68,14 @@ const Details = () => {
             onClick={() => navigate(`/pokedex?page=${state.page || 1}`)}
           />
         </a>
+        {/*
+         I've noticed this in a couple different places now where there is both an href and 
+         a click handler. I'm not exactly sure why both of these were needed, but I suspect it
+         was to keep the URL state in sync with the page state?
+
+         Ideally everything would go through react router and you would never need these 
+         hrefs 
+        */}
         <h3>{name}</h3>
       </div>
         <div className="details-card">
@@ -59,6 +86,19 @@ const Details = () => {
               {types.map((type, index) => (
                 <Types key={index} type={type} />
               ))}
+              {/*
+                I haven't mentioned this yet in other reviews, but if every single
+                instance of types is mapped over, the map could be included in the 
+                component. 
+
+                <Types types={types} />
+
+                This is also a good example of a name that could be improved upon as well. 
+                Here you are mapping over types and displaying a single type. So the name
+                Types doesn't match the data type that is being displayed. Like I said 
+                above though, the map could be included and you could keep the name the same
+
+              */}
             </div>
           </div>
           <div className="border" />
