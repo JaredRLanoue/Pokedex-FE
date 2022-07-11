@@ -9,6 +9,8 @@ export default function ProfileRow({ name, value }) {
       return setProfileValue(value + " m");
     } else if (name === "Weight:") {
       return setProfileValue(value + " kg");
+      // As Braden mentioned on the meeting today, this is an example
+      // of state variables that don't need to be state variables
     } else {
       let arrayOfValues = [];
       (value || []).map((element) => {
