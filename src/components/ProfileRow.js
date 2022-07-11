@@ -19,7 +19,7 @@ export default function ProfileRow({ name, value }) {
 
       // This can be cleaned up into essentially a single line. Array map actually
       // is used to make a new array, in this code you are treating it as a [].forEach
-      // Something like this should work, using functional programming and a single line
+      // Something like this example below should work, using functional programming and a single line
       // of code
       //
       // const values = value.map(val => 
