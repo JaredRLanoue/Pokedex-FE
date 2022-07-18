@@ -1,51 +1,50 @@
 import React, { useCallback } from "react";
+import { Link } from "react-router-dom";
 import "../styles/NotFound.css";
 import "./MainPage";
 import searchIcon from "../assets/search.svg";
 import debounce from "lodash.debounce";
 
-const Search = ({
-  setPageData,
-  setSearchParams,
-  meta,
-  page
-}) => {
+const Search = ({ setSearchParams, meta, page }) => {
+  const nextPage = navigateNextPage();
+  const previousPage = navigatePreviousPage();
 
-  const handleSearch = (searchInput) => {
-    fetch(
-      `https://intern-pokedex.myriadapps.com/api/v1/pokemon?name=${searchInput.target.value}`
-    )
-      .then((resp) => resp.json())
-      .then(({ data }) => {
-        setPageData(data);
-        if (searchInput.target.value === "") setSearchParams({ page: page });
-        else setSearchParams({ page: page, name: searchInput.target.value });
-      });
+  const handleSearch = (event) => {
+    if (event.target.value === "") setSearchParams({ page: page });
+    else setSearchParams({ page: page, name: event.target.value });
   };
 
-  const navigateNextPage = () => {
-    if (page >= meta.last_page) return null;
-    else setSearchParams({ page: page + 1 });
-  };
+  function navigateNextPage() {
+    if (page >= meta.last_page) return meta.last_page;
+    else {
+      if (page < 1) return 1;
+      else return page + 1;
+    }
+  }
 
-  const navigatePreviousPage = () => {
-    if (page <= 1) return null;
-    else setSearchParams({ page: page - 1 });
-  };
+  function navigatePreviousPage() {
+    if (page <= 1) return 1;
+    else {
+      if (page > meta.last_page) return 1;
+      else return page - 1;
+    }
+  }
 
   return (
     <div className="header-container">
-      <button className="nav-back" onClick={navigatePreviousPage} />
-      <h1 className="title">Pokédex</h1>
+      <Link to={`/pokedex?page=${previousPage}`} className="nav-back" />
+      <Link to={`/pokedex?page=1`} className="title">
+        Pokédex
+      </Link>
       <div className="search-box">
-        <img draggable="false" src={searchIcon} alt="" />
+        <img draggable="false" src={searchIcon} alt="Search Icon" />
         <input
           type="text"
           placeholder="Search"
           onChange={useCallback(debounce(handleSearch, 300))}
         />
       </div>
-      <button className="nav-next" onClick={navigateNextPage} />
+      <Link to={`/pokedex?page=${nextPage}`} className="nav-next" />
     </div>
   );
 };

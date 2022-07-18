@@ -1,17 +1,17 @@
-.details-page {
+.pokemon-details-page {
   overflow: auto;
   height: 100vh;
   width: 100%;
 }
 
-.details-card {
+.pokemon-details-card {
   box-sizing: border-box;
   padding: 24px;
   gap: 16px;
   border-radius: 16px;
   background-color: white;
-  width: 800px;
-  height: 740px;
+  width: max-content;
+  height: max-content;
   justify-content: center;
   margin: auto;
   margin-bottom: 64px;
@@ -30,7 +30,7 @@ h3 {
   color: #574f62;
 }
 
-.details-header {
+.pokemon-details-header {
   display: flex;
   align-items: center;
   padding-left: 72px;
@@ -183,6 +183,7 @@ h3 {
   align-items: flex-start;
   padding: 1px;
   width: 752px;
+  margin-bottom: 14px;
   height: max-content;
   flex: none;
   order: 2;

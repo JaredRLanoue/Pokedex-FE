@@ -1,36 +1,45 @@
-import React, { useState, useEffect } from "react";
-import "../styles/CardDetails.css";
+import React from "react";
+import "../styles/PokemonDetails.css";
 
 export default function StatsRow({ name, value }) {
-  const [statsData, setStatData] = useState();
-  const maxValues = { hp: 255, speed: 160, attack: 165, defense: 230, spatk: 154, spdef: 230 };
+  const statValues = {
+    hp: {
+      name: "HP",
+      value: 255,
+    },
+    speed: {
+      name: "Speed",
+      value: 160,
+    },
+    attack: {
+      name: "Attack",
+      value: 165,
+    },
+    defense: {
+      name: "Defense",
+      value: 230,
+    },
+    "special-attack": {
+      name: "Sp Atk",
+      value: 154,
+    },
+    "special-defense": {
+      name: "Sp Def",
+      value: 230,
+    },
+  };
 
-  useEffect(() => {
-    if (name === "hp") {
-      setStatData({ name: "HP", width: (value / maxValues.hp) * 100 });
-    } else if (name === "speed") {
-      setStatData({ name: "Speed", width: (value / maxValues.speed) * 100 });
-    } else if (name === "attack") {
-      setStatData({ name: "Attack", width: (value / maxValues.attack) * 100 });
-    } else if (name === "defense") {
-      setStatData({ name: "Defense", width: (value / maxValues.defense) * 100 });
-    } else if (name === "special-attack") {
-      setStatData({ name: "Sp Atk", width: (value / maxValues.spatk) * 100 });
-    } else if (name === "special-defense") {
-      setStatData({ name: "Sp Def", width: (value / maxValues.spdef) * 100 });
-    }
-  }, []);
-
-  if (statsData !== undefined) {
-    return (
-      <div className="stats-row">
-        <div className="stats-name">{statsData.name}</div>
-        <div className="stats-value-background">
-          <div className="stats-value" style={{ width: `${statsData.width}%` }}>
-            {value}
-          </div>
+  return (
+    <div className="stats-row">
+      <div className="stats-name">{statValues[name].name}</div>
+      <div className="stats-value-background">
+        <div
+          className="stats-value"
+          style={{ width: `${(value / statValues[name].value) * 100}%` }}
+        >
+          {value}
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }

@@ -21,12 +21,6 @@ a {
   justify-content: center;
 }
 
-@media (max-width: 720px) {
-  .bottom-container{
-      grid-template-columns: repeat(auto-fill, 312px);
-  }
-}
-
 h2 {
   left: 16px;
   color: #181222;
@@ -39,7 +33,7 @@ h2 {
   top: 0px;
 }
 
-button:hover {
+a:hover {
   transform: scale(1.03);
 }
 

@@ -1,23 +1,22 @@
-import React, { useEffect, useState } from "react";
-import "../styles/CardDetails.css";
+import React from "react";
+import "../styles/PokemonDetails.css";
 
 export default function ProfileRow({ name, value }) {
-  const [profileValue, setProfileValue] = useState([]);
+  const profileValue = setUpProfileValue();
 
-  useEffect(() => {
+  function setUpProfileValue() {
     if (name === "Height:") {
-      return setProfileValue(value + " m");
+      return value + " m";
     } else if (name === "Weight:") {
-      return setProfileValue(value + " kg");
+      return value + " kg";
     } else {
-      let arrayOfValues = [];
-      (value || []).map((element) => {
-        return arrayOfValues.push(element.charAt(0).toUpperCase() + element.substring(1).toLowerCase()
-        );
-      });
-      return setProfileValue(arrayOfValues.join(", "));
+      return value
+        .map(
+          (val) => val.charAt(0).toUpperCase() + val.substring(1).toLowerCase()
+        )
+        .join(", ");
     }
-  }, []);
+  }
 
   return (
     <div className="profile-row">

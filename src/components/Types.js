@@ -1,11 +1,12 @@
-import React from "react"
-import "../styles/Types.css"
+import React from "react";
+import "../styles/Types.css";
 
-export default function Types({type}) {
-
+export default function Types({ types }) {
   return (
-    <div className={`${type} type-box`}>
-      {type}
+    <div className="pokemon-type">
+      {types.map((type, index) => (
+        <div className={`${type} type-box`} key={index}>{type}</div>
+      ))}
     </div>
-  )
+  );
 }

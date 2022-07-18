@@ -16,7 +16,7 @@
   align-items: center;
   padding: 12px;
   gap: 16px;
-  width: 1006px;
+  width: max-content;
   height: 48px;
   background: #ffffff;
   border: 1px solid #000000;
@@ -26,7 +26,7 @@
 }
 
 input[type="text"] {
-  width: 942px;
+  width: max-content;
   border: none;
   height: 24px;
   outline: none;
@@ -51,7 +51,7 @@ input[type="text"] {
 .title {
   background-color: transparent;
   width: 122px;
-  height: 40px;
+  height: min-content;
   font-weight: 400;
   font-size: 32px;
   line-height: 40px;

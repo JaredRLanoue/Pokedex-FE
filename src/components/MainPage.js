@@ -3,48 +3,50 @@ import { useSearchParams } from "react-router-dom";
 import Search from "./Search";
 import "../styles/MainPage.css";
 import "../styles/Search.css";
-import "../styles/Card.css";
-import Card from "./Card";
+import "../styles/Pokemon.css";
+import Pokemon from "./Pokemon";
 import Loading from "./Loading";
 
 export default function MainPage() {
-  const [searchParams, setSearchParams] = useSearchParams({page: 1});
+  const [searchParams, setSearchParams] = useSearchParams({ page: 1 });
   const [pageData, setPageData] = useState([]);
   const [meta, setMeta] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   let page = parseInt(searchParams.get("page"));
+  let name = searchParams.get("name");
 
   useEffect(() => {
-    setSearchParams({page: page})
+    if (!name) name = "";
+    else page = 1;
     fetch(
       `https://intern-pokedex.myriadapps.com/api/v1/pokemon?` +
-        new URLSearchParams({ page })
+        new URLSearchParams({ page, name }),
+      { signal }
     )
       .then((resp) => resp.json())
       .then(({ data, meta }) => {
         document.title = "Pokédex";
         setPageData(data);
-        setMeta({ meta });
+        setMeta(meta);
         setIsLoading(false);
       });
-  }, [searchParams.get("page")]);
+  }, [page, name]);
 
-  
   if (isLoading) return <Loading />;
-  else return (
+  else
+    return (
       <div className="page-container">
         <Search
-          setPageData={setPageData}
           setSearchParams={setSearchParams}
           searchParams={searchParams}
           meta={meta}
           page={page}
         />
-          <div className="bottom-container">
-            {pageData.map((pokemon) => (
-              <Card key={pokemon.id} pokemon={pokemon} page={page} />
-            ))}
-          </div>
+        <div className="bottom-container">
+          {pageData.map((pokemon) => (
+            <Pokemon key={pokemon.id} pokemon={pokemon} page={page} />
+          ))}
+        </div>
       </div>
     );
-  }
+}
