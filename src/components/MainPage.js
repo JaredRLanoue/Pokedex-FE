@@ -20,8 +20,7 @@ export default function MainPage() {
     else page = 1;
     fetch(
       `https://intern-pokedex.myriadapps.com/api/v1/pokemon?` +
-        new URLSearchParams({ page, name }),
-      { signal }
+        new URLSearchParams({ page, name })
     )
       .then((resp) => resp.json())
       .then(({ data, meta }) => {
